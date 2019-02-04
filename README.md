@@ -15,7 +15,7 @@ Just type in browser console:
 
 `notification.show("info", "tl", "Hello");`
 
-**The notification will automatically disappear after 5 seconds**
+ℹ️ **The notification will automatically disappear after 5 seconds.**
 
 ## API
 
