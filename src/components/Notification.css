@@ -1,0 +1,71 @@
+.box {
+  position: fixed;
+  z-index: 1;
+  width: 200px;
+  height: 70px;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+.box .message {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 25px 15px 0 15px;
+}
+
+.box .dismiss {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+  padding: 2px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.box .dismiss:hover {
+  color: white;
+}
+
+.box.tl {
+  left: 10px;
+}
+
+.box.tr {
+  right: 10px;
+}
+
+.box.bl {
+  left: 10px;
+}
+
+.box.br {
+  right: 10px;
+}
+
+.box.alert {
+  background-color: #e74c3c;
+}
+
+.box.info {
+  background-color: #3498db;
+}
+
+.box.warning {
+  background-color: #f1c40f;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
