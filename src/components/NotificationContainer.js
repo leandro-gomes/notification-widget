@@ -41,9 +41,11 @@ class NotificationContainer extends Component {
     this.visibilityHelper[id] = false;
   }
 
-  calculateOrder(pos) {
+  calculateOrder(position) {
     return this.state.notifications.filter(
-      n => n.position === pos && this.visibilityHelper[n.id]
+      notification =>
+        notification.position === position &&
+        this.visibilityHelper[notification.id]
     ).length;
   }
 
