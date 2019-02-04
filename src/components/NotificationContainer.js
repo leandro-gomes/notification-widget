@@ -18,7 +18,7 @@ class NotificationContainer extends Component {
           id: 'id-1',
           type: 'alert',
           position: 'tl',
-          message: 'World',
+          message: 'Oops! Something went wrong',
           groupOrder: 1,
         },
       ],
