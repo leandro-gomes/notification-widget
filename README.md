@@ -7,8 +7,6 @@ $ npm start
 
 ## Usage
 
-Just type in browser console:
-
 `notification.show(type, position, message);`
 
 ### Example:

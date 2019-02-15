@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Notification from './Notification';
+import NotificationForm from './NotificationForm';
 import './NotificationContainer.css';
 
 class NotificationContainer extends Component {
@@ -11,20 +12,14 @@ class NotificationContainer extends Component {
           id: 'id-0',
           type: 'info',
           position: 'tl',
-          message: 'Hello',
+          message: 'Hello World',
           groupOrder: 0,
-        },
-        {
-          id: 'id-1',
-          type: 'alert',
-          position: 'tl',
-          message: 'Oops! Something went wrong',
-          groupOrder: 1,
         },
       ],
     };
-    this.visibilityHelper = { 'id-0': true, 'id-1': true };
+    this.visibilityHelper = { 'id-0': true };
     this.onDismiss = this.onDismiss.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   static defaultProps = {
@@ -33,12 +28,12 @@ class NotificationContainer extends Component {
     message: 'Hello!',
   };
 
-  componentDidMount() {
-    window.notification = this;
-  }
-
   onDismiss(id) {
     this.visibilityHelper[id] = false;
+  }
+
+  onSubmit(opts) {
+    this.show(opts.type, opts.position, opts.message);
   }
 
   calculateOrder(position) {
@@ -50,12 +45,14 @@ class NotificationContainer extends Component {
   }
 
   show(type, position, message) {
-    var pos = position ? position : this.defaultProps.position;
+    const pos = position
+      ? position
+      : NotificationContainer.defaultProps.position;
     const newElement = {
       id: 'id-' + this.state.notifications.length,
-      type: type ? type : this.defaultProps.type,
+      type: type ? type : NotificationContainer.defaultProps.type,
       position: pos,
-      message: message ? message : this.defaultProps.message,
+      message: message ? message : NotificationContainer.defaultProps.message,
       groupOrder: this.calculateOrder(pos),
     };
     this.setState({
@@ -78,7 +75,12 @@ class NotificationContainer extends Component {
         onDismiss={this.onDismiss}
       />
     ));
-    return <div className="container">{listNotifications}</div>;
+    return (
+      <div className="container">
+        <NotificationForm onSubmit={this.onSubmit} />
+        {listNotifications}
+      </div>
+    );
   }
 
   render() {

@@ -25,7 +25,7 @@ class Notification extends Component {
   }
 
   calculateYPos(position, order) {
-    var YPos;
+    let YPos;
     if (position === 'tl' || position === 'tr') {
       YPos = {
         top: 10 + 80 * order + 'px',

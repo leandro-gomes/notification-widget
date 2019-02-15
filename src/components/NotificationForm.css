@@ -1,0 +1,65 @@
+.form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.form h4 {
+  font-size: 24px;
+  text-align: center;
+  margin: 5px auto;
+}
+
+.form > label:not(:first-child) {
+  display: inline-block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.form input.message {
+  display: block;
+  width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 4px;
+  padding: 2px 9px;
+  min-height: 38px;
+  font-size: 16px;
+  outline: 0;
+}
+
+.form input.message:focus {
+  border: 2px solid #2684ff;
+}
+
+.form button {
+  background-color: #2684ff;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  padding: 15px;
+  margin-top: 20px;
+  width: 100%;
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #1e69cc;
+}
+
+@media all and (min-width: 768px) {
+  .form {
+    width: 30%;
+  }
+}
