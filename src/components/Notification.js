@@ -4,11 +4,7 @@ import SETTINGS from './../constants.js';
 import PropTypes from 'prop-types';
 
 class Notification extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { visible: true, autoDismissTime: SETTINGS.AUTO_DISMISS };
-    this.dismiss = this.dismiss.bind(this);
-  }
+  state = { visible: true, autoDismissTime: SETTINGS.AUTO_DISMISS };
 
   componentDidMount() {
     this.timerID = setInterval(
@@ -38,9 +34,9 @@ class Notification extends Component {
     return YPos;
   }
 
-  dismiss() {
+  dismiss = () => {
     this.setState({ visible: false });
-  }
+  };
 
   render() {
     const { visible } = this.state;

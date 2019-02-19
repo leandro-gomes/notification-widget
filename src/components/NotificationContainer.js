@@ -4,23 +4,18 @@ import NotificationForm from './NotificationForm';
 import './NotificationContainer.css';
 
 class NotificationContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notifications: [
-        {
-          id: 'id-0',
-          type: 'info',
-          position: 'tl',
-          message: 'Hello World',
-          groupOrder: 0,
-        },
-      ],
-    };
-    this.visibilityHelper = { 'id-0': true };
-    this.onDismiss = this.onDismiss.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+  state = {
+    notifications: [
+      {
+        id: 'id-0',
+        type: 'info',
+        position: 'tl',
+        message: 'Hello World',
+        groupOrder: 0,
+      },
+    ],
+  };
+  visibilityHelper = { 'id-0': true };
 
   static defaultProps = {
     type: 'info',
@@ -28,13 +23,13 @@ class NotificationContainer extends Component {
     message: 'Hello!',
   };
 
-  onDismiss(id) {
+  onDismiss = id => {
     this.visibilityHelper[id] = false;
-  }
+  };
 
-  onSubmit(opts) {
+  onSubmit = opts => {
     this.show(opts.type, opts.position, opts.message);
-  }
+  };
 
   calculateOrder(position) {
     return this.state.notifications.filter(

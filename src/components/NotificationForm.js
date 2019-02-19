@@ -16,16 +16,11 @@ const optionsPos = [
 ];
 
 class NotificationForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOptionType: null,
-      selectedOptionPos: null,
-      message: '',
-    };
-    this.handleChangeMessage = this.handleChangeMessage.bind(this);
-    this.handleSelection = this.handleSelection.bind(this);
-  }
+  state = {
+    selectedOptionType: null,
+    selectedOptionPos: null,
+    message: '',
+  };
 
   handleChangeType = selectedOptionType => {
     this.setState({ selectedOptionType });
@@ -35,11 +30,11 @@ class NotificationForm extends Component {
     this.setState({ selectedOptionPos });
   };
 
-  handleChangeMessage(event) {
+  handleChangeMessage = event => {
     this.setState({ message: event.target.value });
-  }
+  };
 
-  handleSelection() {
+  handleSelection = () => {
     if (this.state.selectedOptionType && this.state.selectedOptionPos) {
       const opts = {
         type: this.state.selectedOptionType.value,
@@ -50,7 +45,7 @@ class NotificationForm extends Component {
     } else {
       alert('Please select notification type and position.');
     }
-  }
+  };
 
   render() {
     const { selectedOptionType, selectedOptionPos } = this.state;
